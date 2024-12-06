@@ -7,11 +7,11 @@ const {Server} = require("socket.io");
 
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, 'client/dist')));
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client/dist', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
+
 
 //Genarate Server -> express app using http library 
 const server = http.createServer(app);

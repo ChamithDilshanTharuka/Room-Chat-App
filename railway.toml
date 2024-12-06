@@ -1,0 +1,12 @@
+[build]
+# Install dependencies for both client and server
+baseDirectory = "./server"
+commands = [
+  "npm install",
+  "cd ../client && npm install && npm run build",  # Build React app
+  "mv ../client/dist ./public"  # Move the built React files to the server's public folder
+]
+
+[start]
+# Start the Express server
+command = "node server.js"
